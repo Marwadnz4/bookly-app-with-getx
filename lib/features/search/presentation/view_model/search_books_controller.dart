@@ -1,11 +1,12 @@
 import 'package:bookly_app/core/errors/failures.dart';
-import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/core/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo.dart';
+import 'package:bookly_app/features/search/data/repos/home_repo_imp.dart';
 import 'package:get/get.dart';
 
 class SearchBooksController extends GetxController {
-  SearchBooksController(this.homeRepo);
-  final HomeRepo homeRepo;
+  SearchBooksController(this.searchRepo);
+  final SearchRepo searchRepo;
   List<BookModel>? booksList;
   Failure? failureMsg;
   Rx<bool> isLoading = false.obs;
@@ -15,7 +16,7 @@ class SearchBooksController extends GetxController {
   }) async {
         isLoading.value = true;
     // emit(SearchBooksLoading());
-    var result = await homeRepo.fetchSearchBooks(
+    var result = await searchRepo.fetchSearchBooks(
       keyword: keyword,
     );
     result.fold((failure) {

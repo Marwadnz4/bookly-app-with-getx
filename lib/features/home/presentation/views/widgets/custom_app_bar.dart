@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/utils/assets.dart';
 import 'package:bookly_app/core/utils/service_locator.dart';
-import 'package:bookly_app/features/home/data/repos/home_repo_imp.dart';
+import 'package:bookly_app/features/search/data/repos/home_repo_imp.dart';
 import 'package:bookly_app/features/search/presentation/view_model/search_books_controller.dart';
 import 'package:bookly_app/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +30,7 @@ class CustomAppBar extends StatelessWidget {
                 const SearchView(),
                 binding: BindingsBuilder.put(
                   () => SearchBooksController(
-                    getIt.get<HomeRepoImpl>(),
+                    getIt.get<SearchRepo>(),
                   ),
                 ),
               );

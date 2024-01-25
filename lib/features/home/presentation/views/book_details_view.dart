@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class BookDetailsView extends StatelessWidget {
-  BookDetailsView({super.key});
+  const BookDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
